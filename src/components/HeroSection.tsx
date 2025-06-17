@@ -88,7 +88,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language, scrollY, setShowAIM
 
           {/* Tombol WhatsApp dengan Animasi */}
           <motion.a
-            href="https://wa.me/6285921896058"
+            href="https://api.whatsapp.com/send?phone=85561552851&text=👋omagnaink"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
