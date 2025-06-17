@@ -1,9 +1,10 @@
-
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Globe } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
+import { logo } from '../data/omagnaData'; // <-- 1. IMPORT LOGO DARI BRANKAS
+import OptimizedImage from './ui/OptimizedImage'; // <-- 2. IMPORT GAMBAR CERDAS KITA
 
 interface NavigationProps {
   language: Language;
@@ -13,6 +14,11 @@ interface NavigationProps {
   scrollToSection: (id: string) => void;
 }
 
+/**
+ * Versi final Navigation.tsx berdasarkan kode pengguna.
+ * Logo disempurnakan untuk menggunakan data terpusat.
+ * Revisi oleh KOSMARA AI.
+ */
 const Navigation: React.FC<NavigationProps> = ({
   language,
   mobileMenuOpen,
@@ -22,36 +28,35 @@ const Navigation: React.FC<NavigationProps> = ({
 }) => {
   const t = translations;
 
+  const navLinks = [
+    { id: 'hero', label: t.nav.hero[language] },
+    { id: 'artists', label: t.nav.artists[language] },
+    { id: 'gallery', label: t.nav.gallery[language] },
+    { id: 'faq', label: t.nav.faq[language] },
+    { id: 'sanctuary', label: t.nav.sanctuary[language] },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center space-x-3">
-            <img 
-              src="https://ik.imagekit.io/omagnaink/omagnaink-logo2025-transparant.png" 
-              alt="Omagna Ink Studio"
-              className="h-8 w-auto filter invert"
+          
+          {/* Logo yang Sudah Disempurnakan */}
+          <button onClick={() => scrollToSection('hero')} className="flex items-center space-x-3">
+            <OptimizedImage 
+              src={logo.url} 
+              alt={logo.alt}
+              className="h-10 w-auto" // Ukuran disesuaikan agar pas
             />
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('hero')} className="hover:text-yellow-500 transition-colors font-cinzel">
-              {t.nav.hero[language]}
-            </button>
-            <button onClick={() => scrollToSection('artists')} className="hover:text-yellow-500 transition-colors font-cinzel">
-              {t.nav.artists[language]}
-            </button>
-            <button onClick={() => scrollToSection('gallery')} className="hover:text-yellow-500 transition-colors font-cinzel">
-              {t.nav.gallery[language]}
-            </button>
-            <button onClick={() => scrollToSection('faq')} className="hover:text-yellow-500 transition-colors font-cinzel">
-              {t.nav.faq[language]}
-            </button>
-            <button onClick={() => scrollToSection('sanctuary')} className="hover:text-yellow-500 transition-colors font-cinzel">
-              {t.nav.sanctuary[language]}
-            </button>
+            {navLinks.map(link => (
+              <button key={link.id} onClick={() => scrollToSection(link.id)} className="hover:text-yellow-500 transition-colors font-cinzel">
+                {link.label}
+              </button>
+            ))}
             <button 
               onClick={toggleLanguage}
               className="flex items-center space-x-1 px-3 py-1 border border-yellow-600 rounded hover:border-yellow-500 transition-colors"
@@ -80,21 +85,11 @@ const Navigation: React.FC<NavigationProps> = ({
               className="md:hidden mt-4 border-t border-gray-800 pt-4"
             >
               <div className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('hero')} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
-                  {t.nav.hero[language]}
-                </button>
-                <button onClick={() => scrollToSection('artists')} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
-                  {t.nav.artists[language]}
-                </button>
-                <button onClick={() => scrollToSection('gallery')} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
-                  {t.nav.gallery[language]}
-                </button>
-                <button onClick={() => scrollToSection('faq')} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
-                  {t.nav.faq[language]}
-                </button>
-                <button onClick={() => scrollToSection('sanctuary')} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
-                  {t.nav.sanctuary[language]}
-                </button>
+                {navLinks.map(link => (
+                  <button key={link.id} onClick={() => scrollToSection(link.id)} className="text-left hover:text-yellow-500 transition-colors font-cinzel">
+                    {link.label}
+                  </button>
+                ))}
                 <button 
                   onClick={toggleLanguage}
                   className="flex items-center space-x-1 px-3 py-1 border border-yellow-600 rounded hover:border-yellow-500 transition-colors w-fit"
