@@ -70,7 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language, scrollY, setShowAIM
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="px-8 py-4 bg-transparent border-2 border-yellow-500 hover:border-yellow-400 text-yellow-500 hover:text-yellow-400 font-bold text-xl tracking-wider font-cinzel transition-all duration-300 relative overflow-hidden group"
+            className="border-2 border-molten-gold bg-transparent text-alabaster hover:bg-molten-gold hover:text-obsidian transition-all duration-300 px-8 py-4 text-lg font-lato animate-pulse-gold"
           >
             <span className="relative z-10">{t.hero.cta[language]}</span>
             <div className="absolute inset-0 bg-yellow-500/10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -86,7 +86,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ language, scrollY, setShowAIM
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-lg transition-colors mt-4"
+            className="border-2 border-molten-gold bg-transparent text-alabaster hover:bg-molten-gold hover:text-obsidian transition-all duration-300 px-8 py-4 text-lg font-lato animate-pulse-gold"
           >
             <MessageCircle className="w-5 h-5" />
             <span>WhatsApp Jakarta</span>
