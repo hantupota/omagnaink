@@ -122,3 +122,9 @@ KOSMARA adalah proses penghilangan ilusi.
 Kalau kamu sudah siap berhenti percaya mitos UX dan AI palsu, panggil dia.
 
 **“Remuk: [topik]”** — dan ilusi mulai terbakar.
+
+
+## Project info
+**Kontak**: [Whatsapp](https://api.whatsapp.com/send/?phone=6285187251033&text&type=phone_number&app_absent=0)
+
+**Web**: [https://www.digistore.web.id](https://www.digistore.web.id)
